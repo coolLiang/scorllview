@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ViewController : UIViewController<UIScrollViewDelegate>
+#import "ADScrollView.h"
+@interface ViewController : UIViewController<UIScrollViewDelegate,ADScrollViewDelegate>
 
 
 @end

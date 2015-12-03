@@ -7,21 +7,28 @@
 //
 
 #import <UIKit/UIKit.h>
+@protocol ADScrollViewDelegate
 
-@interface ADScrollView : UIScrollView
+//点击图片时。将点击的图片在图片数组中的索引值传出去。
+-(void)onImageViewClick:(NSInteger)index;
+
+@end
+
+@interface ADScrollView : UIView<UIScrollViewDelegate>
 {
     int currentPage; //当前页数
 }
+
+@property(nonatomic,strong)UIScrollView * scrollView;
+
+@property(nonatomic,strong)UIPageControl * pageControl;
 
 @property(nonatomic,strong)NSTimer * timer;
 
 @property(nonatomic,strong)NSArray * imageArray;
 
+@property(nonatomic,weak)id delegate;
+
 -(instancetype)init;
-
-
-//手动滑动时 触发方法。
--(void)scrollViewScrolledUpdate;
-
 
 @end
